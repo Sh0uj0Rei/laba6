@@ -1,0 +1,40 @@
++-------------------+       +-------------------+
+| main_info         |       | description       |
+|-------------------|       |-------------------|
+| scp_id (PK)       |<----->| scp_id (FK)       |
+| scp_number        |       | physical_description |
+| object_class      |       | special_notes     |
++-------------------+       +-------------------+
+    ^                               ^
+    |                               |
+    |                               |
+    |                               |
+    |                               |
++-------------------+       +-------------------+
+| k_class_events    |       | scp_organizations |
+|-------------------|       |-------------------|
+| event_id (PK)     |       | scp_id (FK)       |
+| scp_id (FK)       |<----->| org_id (FK)       |
+| event_type        |       +-------------------+
+| event_description |               |
++-------------------+               v
+                                  +-------------------+
+                                  | organizations     |
+                                  |-------------------|
+                                  | org_id (PK)       |
+                                  | org_name          |
+                                  | org_description   |
+                                  +-------------------+
+                                 	^
+                                	|
+                                  	|
+                                  	|
+                                 	|
++-------------------+       +-------------------+
+| scp_staff         |       | staff             |
+|-------------------|       |-------------------|
+| scp_id (FK)       |<----->| staff_id (PK)     |
+| staff_id (FK)     |       | name              |
++-------------------+       | position          |
+                            | clearance_level   |
+                            +-------------------+
